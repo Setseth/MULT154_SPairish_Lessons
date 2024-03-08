@@ -11,5 +11,5 @@ public class Item : MonoBehaviour
         RADISH
     }
 
-    public VegetableType typeofVeggie;
+    public VegetableType typeOfVeggie;
 }
