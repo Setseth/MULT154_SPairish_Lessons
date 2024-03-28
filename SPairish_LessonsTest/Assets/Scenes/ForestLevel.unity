@@ -3083,7 +3083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 160842461}
   hidingSpots: []
-  mode: 3
+  mode: 0
 --- !u!1 &1729162288
 GameObject:
   m_ObjectHideFlags: 0
