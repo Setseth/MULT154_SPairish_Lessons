@@ -2,6 +2,7 @@
 /// Code modified from https://learn.unity.com/tutorial/hide-h1zl/?courseId=5dd851beedbc2a1bf7b72bed&projectId=5e0b9220edbc2a14eb8c9356&tab=materials&uv=2019.3#
 /// Author: Penny de Byl
 ///
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,6 @@ public class Bot : MonoBehaviour
     public GameObject target;
     public GameObject[] hidingSpots;
     private Rigidbody rbBody;
-    public BMode mode;
 
     float currentSpeed
     {
@@ -37,18 +37,18 @@ public class Bot : MonoBehaviour
         rbBody = target.GetComponent<Rigidbody>();
     }
 
-    void Seek(Vector3 location)
+    public void Seek(Vector3 location)
     {
         agent.SetDestination(location);
     }
 
-    void Flee(Vector3 location)
+    public void Flee(Vector3 location)
     {
         Vector3 fleeVector = location - this.transform.position;
         agent.SetDestination(this.transform.position - fleeVector);
     }
 
-    void Pursue()
+    public void Pursue()
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
 
@@ -66,7 +66,7 @@ public class Bot : MonoBehaviour
         Seek(target.transform.position + target.transform.forward * lookAhead);
     }
 
-    void Evade()
+    public void Evade()
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
         float lookAhead = targetDir.magnitude / (agent.speed + currentSpeed);
@@ -75,7 +75,7 @@ public class Bot : MonoBehaviour
 
 
     Vector3 wanderTarget = Vector3.zero;
-    void Wander()
+    public void Wander()
     {
         float wanderRadius = 10;
         float wanderDistance = 10;
@@ -107,6 +107,12 @@ public class Bot : MonoBehaviour
             {
                 chosenSpot = hidePos;
                 dist = Vector3.Distance(this.transform.position, hidePos);
+                if (Vector3.Distance(target.transform.position, transform.position) < 15)
+                {
+                    hideDir = hidingSpots[i++].transform.position - target.transform.position;
+                    hidePos = hidingSpots[i++].transform.position + hideDir.normalized * 10;
+                    chosenSpot = hidePos;
+                }
             }
         }
 
@@ -141,12 +147,10 @@ public class Bot : MonoBehaviour
         float distance = 250.0f;
         hideCol.Raycast(backRay, out info, distance);
 
-
         Seek(info.point + chosenDir.normalized);
-
     }
 
-    bool CanSeeTarget()
+    public bool CanSeeTarget()
     {
         RaycastHit raycastInfo;
         Vector3 rayToTarget = target.transform.position - this.transform.position;
@@ -158,7 +162,7 @@ public class Bot : MonoBehaviour
         return false;
     }
 
-    bool CanTargetSeeMe()
+    public bool CanTargetSeeMe()
     {
         RaycastHit raycastInfo;
         Vector3 targetFwdWS = target.transform.TransformDirection(target.transform.forward);
@@ -170,29 +174,5 @@ public class Bot : MonoBehaviour
                 return true;
         }
         return false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        switch(mode)
-        {
-            case BMode.SEEK:
-                Seek(target.transform.position);
-                break;
-            case BMode.PURSUE:
-                Pursue();
-                break;
-            case BMode.FLEE:
-                Flee(target.transform.position);
-                break;
-            case BMode.EVADE:
-                Evade();
-                break;
-            case BMode.WANDER:
-                Wander();
-                break;
-
-        }
     }
 }

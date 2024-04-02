@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Experimental.Rendering;
 
 public class Patrol : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class Patrol : MonoBehaviour
         return waypoints[currentWPIndex];
     }
 
-    void Update()
+    public void PatrolWaypoints()
     {
         if(Vector3.Distance(transform.position, currentWP.transform.position) < WP_THRESHOLD)
         {
