@@ -13,8 +13,8 @@ public class SwarmBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        patrol = GetComponent<patrol>();
-        bot = GetComponent<bot>();
+        patrol = GetComponent<Patrol>();
+        bot = GetComponent<Bot>();
         HivePickUp.HivePickedUp += HiveTaken;
     }
 
@@ -26,7 +26,7 @@ public class SwarmBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hasHive)
+        if (hasHive)
         {
             patrol.PatrolWaypoints();
         }

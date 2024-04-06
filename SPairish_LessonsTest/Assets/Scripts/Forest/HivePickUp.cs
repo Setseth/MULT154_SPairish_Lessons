@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HivePickUp : MonoBehaviour
 {
+    public UIManager uiManager;
     public delegate void PickUpHive();
     public static event PickUpHive HivePickedUp;
 
@@ -19,6 +20,7 @@ public class HivePickUp : MonoBehaviour
         {
             HivePickedUp?.Invoke();
             gameObject.SetActive(false);
+            uiManager.HoldingHiveText();
         }
     }
 

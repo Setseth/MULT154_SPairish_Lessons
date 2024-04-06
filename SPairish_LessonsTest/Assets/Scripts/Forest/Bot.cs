@@ -2,7 +2,6 @@
 /// Code modified from https://learn.unity.com/tutorial/hide-h1zl/?courseId=5dd851beedbc2a1bf7b72bed&projectId=5e0b9220edbc2a14eb8c9356&tab=materials&uv=2019.3#
 /// Author: Penny de Byl
 ///
-using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -107,12 +106,6 @@ public class Bot : MonoBehaviour
             {
                 chosenSpot = hidePos;
                 dist = Vector3.Distance(this.transform.position, hidePos);
-                if (Vector3.Distance(target.transform.position, transform.position) < 15)
-                {
-                    hideDir = hidingSpots[i++].transform.position - target.transform.position;
-                    hidePos = hidingSpots[i++].transform.position + hideDir.normalized * 10;
-                    chosenSpot = hidePos;
-                }
             }
         }
 
@@ -147,14 +140,19 @@ public class Bot : MonoBehaviour
         float distance = 250.0f;
         hideCol.Raycast(backRay, out info, distance);
 
+
         Seek(info.point + chosenDir.normalized);
+
     }
 
     public bool CanSeeTarget()
     {
         RaycastHit raycastInfo;
-        Vector3 rayToTarget = target.transform.position - this.transform.position;
-        if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
+        Vector3 targetXZPos = new Vector3(target.transform.position.x, 1.5f, target.transform.position.z);
+        Vector3 thisXZPos = new Vector3(transform.position.x, 1.5f, transform.position.z);
+        Vector3 rayToTarget = targetXZPos - thisXZPos;
+        Debug.DrawRay(thisXZPos, rayToTarget, Color.blue);
+        if (Physics.Raycast(thisXZPos, rayToTarget, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject.tag == "Player")
                 return true;
@@ -165,9 +163,7 @@ public class Bot : MonoBehaviour
     public bool CanTargetSeeMe()
     {
         RaycastHit raycastInfo;
-        Vector3 targetFwdWS = target.transform.TransformDirection(target.transform.forward);
-        Debug.DrawRay(target.transform.position, targetFwdWS * 10);
-        Debug.DrawRay(target.transform.position, target.transform.forward * 10, Color.green);
+        Debug.DrawRay(target.transform.position, target.transform.forward, Color.magenta);
         if (Physics.Raycast(target.transform.position, target.transform.forward, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject == gameObject)
