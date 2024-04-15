@@ -51,7 +51,7 @@ public class Bot : MonoBehaviour
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
 
-        /*float relativeHeading = Vector3.Angle(this.transform.forward, this.transform.TransformVector(target.transform.forward));
+        float relativeHeading = Vector3.Angle(this.transform.forward, this.transform.TransformVector(target.transform.forward));
 
         float toTarget = Vector3.Angle(this.transform.forward, this.transform.TransformVector(targetDir));
 
@@ -59,7 +59,7 @@ public class Bot : MonoBehaviour
         {
             Seek(target.transform.position);
             return;
-        }*/
+        }
 
         float lookAhead = targetDir.magnitude / (agent.speed + currentSpeed);
         Seek(target.transform.position + target.transform.forward * lookAhead);
@@ -154,7 +154,7 @@ public class Bot : MonoBehaviour
         Debug.DrawRay(thisXZPos, rayToTarget, Color.blue);
         if (Physics.Raycast(thisXZPos, rayToTarget, out raycastInfo))
         {
-            if (raycastInfo.transform.gameObject.tag == "Player")
+            if (raycastInfo.transform.gameObject == target.gameObject)
                 return true;
         }
         return false;

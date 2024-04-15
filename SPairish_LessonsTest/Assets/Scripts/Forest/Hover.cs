@@ -21,7 +21,7 @@ public class Hover : MonoBehaviour
         while (true)
         {
             float translationYSum = 0;
-            while (translationYSum < length)
+            while(translationYSum < length)
             {
                 float translationY = (length / TIMESTEPS) * speed;
                 transform.Translate(0, translationY, 0);

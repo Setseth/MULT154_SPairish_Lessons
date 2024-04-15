@@ -26,7 +26,7 @@ public class SwarmBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasHive)
+        if(hasHive)
         {
             patrol.PatrolWaypoints();
         }
