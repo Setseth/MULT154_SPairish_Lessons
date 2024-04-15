@@ -10,7 +10,6 @@ public class PlayerMovement : NetworkBehaviour
     public float speed = 10.0f;
     public GameObject[] spawnPoints = null;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +20,8 @@ public class PlayerMovement : NetworkBehaviour
 
         rbPlayer = GetComponent<Rigidbody>();
         spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-
     }
-
-    
-
+ 
     private void Update()
     {
         if (!isLocalPlayer)
@@ -62,7 +58,7 @@ public class PlayerMovement : NetworkBehaviour
     private void Respawn()
     {
         int index = 0;
-        while(Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
+        while (Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
         {
             index++;
         }

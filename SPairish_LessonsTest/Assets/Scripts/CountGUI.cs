@@ -8,7 +8,6 @@ public class CountGUI : MonoBehaviour
     private TextMeshProUGUI tmProElem;
     public string itemName;
     int count = 0;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -17,6 +17,5 @@ public class Quit : MonoBehaviour
         {
             Application.Quit();
         }
-
     }
 }

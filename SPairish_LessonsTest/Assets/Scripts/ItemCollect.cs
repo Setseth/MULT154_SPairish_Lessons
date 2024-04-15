@@ -37,14 +37,14 @@ public class ItemCollect : NetworkBehaviour
             PrintInventory();
 
             CmdItemCollected(item.typeOfVeggie);
+        
         }
-
     }
 
     [Command]
     void CmdItemCollected(Item.VegetableType itemType)
     {
-        Debug.Log("CommandItemCollecte: " + itemType);
+        Debug.Log("CommandItemCollected: " + itemType);
         RpcItemCollected(itemType);
     }
 
@@ -92,7 +92,7 @@ public class ItemCollect : NetworkBehaviour
         foreach (KeyValuePair<Item.VegetableType, int> kvp in ItemInventory)
         {
             output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
+            Debug.Log(output);
         }
-        Debug.Log(output);
     }
 }

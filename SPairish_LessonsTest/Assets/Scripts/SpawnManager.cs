@@ -6,6 +6,7 @@ using Mirror;
 public class SpawnManager : NetworkBehaviour
 {
     public GameObject[] lilyPadObjs = null;
+
     // Start is called before the first frame update
     public override void OnStartServer()
     {
@@ -20,11 +21,10 @@ public class SpawnManager : NetworkBehaviour
 
     void SpawnLilyPad()
     {
-        foreach (GameObject lilyPad in lilyPadObjs)
+        foreach(GameObject lilyPad in lilyPadObjs)
         {
             GameObject tempLilyPad = Instantiate(lilyPad);
             NetworkServer.Spawn(tempLilyPad);
         }
-
     }
 }

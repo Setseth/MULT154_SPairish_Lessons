@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-   public enum VegetableType
+    public enum VegetableType
     {
         BEET,
         CARROT,
