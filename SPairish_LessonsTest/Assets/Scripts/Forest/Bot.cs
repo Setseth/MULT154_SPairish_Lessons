@@ -18,7 +18,7 @@ public class Bot : MonoBehaviour
         WANDER,
         HIDE
     }
-    
+
     NavMeshAgent agent;
     public GameObject target;
     public GameObject[] hidingSpots;
@@ -51,7 +51,7 @@ public class Bot : MonoBehaviour
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
 
-        float relativeHeading = Vector3.Angle(this.transform.forward, this.transform.TransformVector(target.transform.forward));
+        /*float relativeHeading = Vector3.Angle(this.transform.forward, this.transform.TransformVector(target.transform.forward));
 
         float toTarget = Vector3.Angle(this.transform.forward, this.transform.TransformVector(targetDir));
 
@@ -59,7 +59,7 @@ public class Bot : MonoBehaviour
         {
             Seek(target.transform.position);
             return;
-        }
+        }*/
 
         float lookAhead = targetDir.magnitude / (agent.speed + currentSpeed);
         Seek(target.transform.position + target.transform.forward * lookAhead);
@@ -99,7 +99,7 @@ public class Bot : MonoBehaviour
 
         for (int i = 0; i < hidingSpots.Length; i++)
         {
-            Vector3 hideDir =hidingSpots[i].transform.position - target.transform.position;
+            Vector3 hideDir = hidingSpots[i].transform.position - target.transform.position;
             Vector3 hidePos = hidingSpots[i].transform.position + hideDir.normalized * 10;
 
             if (Vector3.Distance(this.transform.position, hidePos) < dist)
@@ -122,7 +122,7 @@ public class Bot : MonoBehaviour
 
         for (int i = 0; i < hidingSpots.Length; i++)
         {
-            Vector3 hideDir =hidingSpots[i].transform.position - target.transform.position;
+            Vector3 hideDir = hidingSpots[i].transform.position - target.transform.position;
             Vector3 hidePos = hidingSpots[i].transform.position + hideDir.normalized * 100;
 
             if (Vector3.Distance(this.transform.position, hidePos) < dist)
