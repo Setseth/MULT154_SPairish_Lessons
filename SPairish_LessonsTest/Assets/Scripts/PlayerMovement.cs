@@ -24,7 +24,7 @@ public class PlayerMovement : NetworkBehaviour
  
     private void Update()
     {
-        if (!isLocalPlayer) ;
+        if (!isLocalPlayer) 
         {
             return;
         }
