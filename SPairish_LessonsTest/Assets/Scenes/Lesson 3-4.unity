@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   rotationSpeed: 30
+  camera: {fileID: 1729162288}
 --- !u!4 &160842463
 Transform:
   m_ObjectHideFlags: 0
@@ -1067,6 +1068,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9b6a524ee786b444d849784a586c48ee, type: 2}
+    - target: {fileID: 9500000, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
