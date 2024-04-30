@@ -10,7 +10,7 @@ public class NavPlayerMovement : MonoBehaviour
     float trans = 0;
     float rotate = 0;
     private Animator anim;
-    public GameObject camera;
+    private Camera camera;
 
     public delegate void DropHive(Vector3 pos);
     public static event DropHive DroppedHive;
@@ -19,6 +19,7 @@ public class NavPlayerMovement : MonoBehaviour
     {
         rgBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+        camera = GetComponentInChildren<Camera>();
     }
     void Update()
     {

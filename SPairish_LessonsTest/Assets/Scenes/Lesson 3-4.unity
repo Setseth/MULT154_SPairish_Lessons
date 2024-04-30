@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 160842465}
   m_Layer: 0
   m_Name: NavPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,8 +445,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.61797714, y: 0.846769, z: 1.0426006}
-  m_Center: {x: -0.01231575, y: 0.35307783, z: 0.049881935}
+  m_Size: {x: 1.1479206, y: 1.5230026, z: 1.9953156}
+  m_Center: {x: -0.02393055, y: 0.73283076, z: 0.13075447}
 --- !u!1 &247736132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 680413746}
   m_Layer: 0
   m_Name: Swarm
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3507,7 +3507,7 @@ GameObject:
   - component: {fileID: 1715602031}
   m_Layer: 0
   m_Name: Bear
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3610,7 +3610,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
