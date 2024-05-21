@@ -47,8 +47,8 @@ Material:
     - _Wave2Freq: 1
     - _Wave2Speed: 2
     m_Colors:
-    - WHColor: {r: 0.462745, g: 0.654902, b: 0.7568628, a: 0}
-    - _Base_River_Color: {r: 0.18823525, g: 0.5960785, b: 0.5686274, a: 0}
+    - WHColor: {r: 0.6273585, g: 0.87081766, b: 1, a: 0}
+    - _Base_River_Color: {r: 0.06003024, g: 0.6698113, b: 0.6287683, a: 0}
     - _Emissive_Color: {r: 0.36078426, g: 0.32941175, b: 0.090196066, a: 0}
     - _Shimmer_Color: {r: 0.7490196, g: 0.7450981, b: 0.6313726, a: 0}
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
